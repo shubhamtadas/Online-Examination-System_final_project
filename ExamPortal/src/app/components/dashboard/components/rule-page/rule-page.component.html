@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container1">
+	<div class="screen">
+		<div class="screen__content">
+
+			<div class="login">
+				<span>
+					<h1> RULES</h1>
+				</span>
+				<div class="" style="margin-left: 30px;">
+
+					<table>
+						<tbody>
+							<tr *ngFor="let rule of ruleList">
+								<!-- <td>{{rule.id}}</td> -->
+								<ul>
+									<li>
+										<td>{{rule.name}}</td><br>
+									</li>
+								</ul>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<button routerLink="/test" routerLinkActive="active" class="button login__submit">
+					<span class="button__text">Agree to proceed</span>
+					
+				</button>
+			</div>
+			<div class="social-login">
+				<div class="social-icons">
+
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	</div>
+</div>

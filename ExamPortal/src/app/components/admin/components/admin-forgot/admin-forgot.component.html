@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container1">
+	<div class="screen">
+		<div class="screen__content">
+
+			<form class="login" (ngSubmit)="onSubmit()">
+				<span>
+					<h1> CREATE NEW PASSWORD</h1>
+				</span>
+				<div class="login__field">
+
+					<i class="login__icon fa fa-user"></i>
+					<input [(ngModel)]="credentials.username" required name="username" type="text" class="login__input" placeholder="User name / Email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fa fa-lock"></i>
+					<input type="password" [(ngModel)]="credentials.password" required name="password" class="login__input" placeholder="Enter New Password">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fa fa-lock"></i>
+					<input type="password" class="login__input" [(ngModel)]="credentials.password1" required name="password1" placeholder="Confirm New Password">
+				</div>
+				<div class="line">
+				<button type="Submit" class="button__icon login__submit">
+					<span class="button__text">Update </span>
+					
+				</button>
+				<button routerLink="/login" routerLinkActive="active" class="button__icon login__submit" style="margin-left :10px;">
+					<span class="button__text">Close</span>
+				</button>
+				</div>
+			</form>
+			<div class="social-login">
+				<!-- <h3>log in via</h3> -->
+				<div class="social-icons">
+
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- <div class="bootstrap-wrapper">
+  <div class="container mt">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img class="img-fluid" style="width: 120px;" src="/assets/password.png" alt="">
+          </div>
+          <h1 class="text-center">Create New Password</h1>
+
+          
+          <form class="text-center" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+              [(ngModel)] = "credentials.username"
+              required
+              name="username"
+              type="text" matInput />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Enter New Password</mat-label>
+              <input
+              [(ngModel)] = "credentials.password"
+              required
+              name="password"
+              type="password" matInput />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Confirm New Password</mat-label>
+              <input
+              [(ngModel)] = "credentials.password1"
+              required
+              name="password1"
+              type="password" matInput />
+            </mat-form-field>
+
+            <div class="container text-center">
+
+              <button type="Submit" mat-raised-button color="primary">Update Password</button>
+              <button type="button" style="margin-left: 10px;" mat-raised-button routerLink="/admin-login">Close</button>
+            </div>
+
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div> -->

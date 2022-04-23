@@ -1,0 +1,184 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container1">
+	<div class="screen">
+		<div class="screen__content">
+
+			<!-- <form class="login">
+
+                <div class="login__field">
+                    <b style="font-weight: 600;font-size: large;">{{this.questionnumber}}) {{this.displayquestion}}</b>
+
+				</div>
+				<div *ngFor="let k of displayanswer;let i = index" class="login__field">
+                    <input   type="checkbox"   [checked]="k.isselected"
+					(change)="isAllSelected(k)" name="answer" class="checkbox-round" style="display: inline-block;"/>{{k.value}}
+
+
+				</div>
+
+
+
+			</form>
+			<form class="login">
+                Question/Attempt Selection
+
+                <div class="photo">
+
+					<div      *ngFor="let j of mySentences;let i = index" (click)="openquestion(i)" class='circle' [class.in-row]="(mySentences[i].review==1 && mySentences[i].review!=-1)" [class.in-row1]="(mySentences[i].review==0 && mySentences[i].review!=-1)"> -->
+			<!-- <span  [ngClass]="{'in-row': mySentences[this.index].review==1,'circle': mySentences[this.index].review==0}"> -->
+			<!-- <span >
+								{{j.id}}
+							</span> -->
+
+
+			<!-- </span> -->
+			<!-- </div>
+
+				</div> -->
+			<!-- <button routerLink="/rules" routerLinkActive="active" class="button login__submit1">
+					<span class="button__text" >Take Photo</span>
+
+				</button>
+				<button routerLink="/rules" routerLinkActive="active" class="button login__submit1">
+					<span class="button__text" >Retake Photo</span>
+
+				</button>
+				<button routerLink="/rules" routerLinkActive="active" class="button login__submit1" style="margin-left: 105px;">
+					<span class="button__text" >Submit</span>
+
+
+				</button> -->
+
+			<!-- </form>
+			<button (click)="review(this.questionnumber)" routerLinkActive="active" class="button login__submit" style="border: 1px solid #f44336;">
+				<span class="button__text" >Mark For Review</span>
+
+
+			</button>
+			<button (click)="confirm(this.questionnumber)" routerLink="/test" routerLinkActive="active" class="button login__submit" style="border: 1px solid #24a54f;">
+				<span class="button__text" >Confirm</span>
+
+
+			</button>
+            <button routerLink="/test" routerLinkActive="active" class="button login__submit" style="border: 1px solid #3659f4;">
+				<span class="button__text" >Next</span>
+
+
+			</button>
+            <button  routerLinkActive="active" class="login__submit1" (click)="openDialogWithRef(firstDialog)">
+				<span class="button__text" >Submit Test</span>
+
+
+			</button> -->
+			<ng-container *ngIf = "!isQuizCompleted">
+				<span style="text-align: center;display: inline;">
+					<h1> TEST</h1>
+				</span>
+				<span style="float: right;display: inline;">
+					<h1> Timer: <b>
+							<countdown [config]="{leftTime: allotedtime}" (event)="handleEvent($event,firstDialog)"></countdown>
+						</b></h1>
+				</span>
+				<div class="question">
+					<div class="card">
+						<h3>{{questionList[currentQuestion]?.question}}</h3>
+					</div>
+				</div>
+				<div class="options">
+					<ol>
+						<li (click)="ans(currentQuestion+1,questionList[currentQuestion]?.option1)">
+							<div class="card">
+								{{questionList[currentQuestion]?.option1}}
+							</div>
+						</li>
+						<li (click)="ans(currentQuestion+1,questionList[currentQuestion]?.option2)">
+							<div class="card">
+								{{questionList[currentQuestion]?.option2}}
+							</div>
+						</li>
+						<li (click)="ans(currentQuestion+1,questionList[currentQuestion]?.option3)">
+							<div class="card">
+								{{questionList[currentQuestion]?.option3}}
+							</div>
+						</li>
+						<li (click)="ans(currentQuestion+1,questionList[currentQuestion]?.option4)">
+							<div class="card">
+								{{questionList[currentQuestion]?.option4}}
+							</div>
+						</li>
+					</ol>
+				</div>
+				<!-- {{questionList.length}} -->
+				<div class="d-flex justify-content-between">
+					<button [disabled]="+currentQuestion == (questionList.length - 1)" (click)="nextQuestion()" routerLinkActive="active" class="button login__submit" style="border: 1px solid #3659f4;">
+						<span class="button__text">Next</span>
+					</button>
+
+					<button routerLinkActive="active" class="login__submit1" >
+						<span class="button__text">Submit Test</span>
+					</button>
+
+				</div>
+
+			</ng-container>
+
+			<ng-container *ngIf = "isQuizCompleted">
+						<!-- <div class="d-flex justify-content-between text-center">
+                 <h3>Congratulations!!!<br> You have completed the test. <br> Below is your result: </h3>
+								 <p>Total Questions Attempted : {{questionList.length}} </p>
+								 <p>Total Correct Answerd : {{correctAnswer}} </p>
+								 <p>Total Wrong Answer : {{inCorrectAnswer}} </p>
+								 <p>Your Score : {{points}} Marks </p>
+						</div> -->
+						<span style="text-align: center;display: inline;">
+							<h1> Result</h1>
+							<br>
+							<h3><i>Congratulations!!!</i><br> <i>You have completed the test.</i> <br> <i>Below is your result:</i> </h3>
+						</span>
+				<!-- <div class="login__field">
+
+
+					<label>Total Questions:&nbsp;</label>
+					<input type="text" class="login__input1" value="{{questionList.length}}">
+				</div> -->
+				<div class="login__field">
+
+					<label>No. of question attempted:&nbsp;</label>
+					<input type="text" class="login__input1" value="{{questionList.length}}">
+				</div>
+				<div class="login__field">
+
+					<label>No of correct Answer:&nbsp;</label>
+					<input type="text" class="login__input1" value="{{correctAnswer}}">
+				</div>
+				<div class="login__field">
+
+					<label>No of Incorrect Answer:&nbsp;</label>
+					<input type="text" class="login__input1" value="{{inCorrectAnswer}}">
+				</div>
+				<div class="login__field">
+
+					<label>Total Marks obtained:&nbsp;</label>
+					<input type="text" class="login__input1" value="{{points}}">
+				</div>
+
+				<button routerLink="/home" routerLinkActive="active" class="button login__submit4" (click)="logoutUser()">
+					<span class="button__text" >Exit</span>
+
+				</button>
+			</ng-container>
+
+		</div>
+
+	</div>
+</div>
+<ng-template #firstDialog>
+	<div>
+		<h2 matDialogTitle>Message</h2>
+		<p matDialogContent><em style="font-weight: 800;">Submitted Successfully!!</em></p>
+		<mat-dialog-actions align="end">
+			<button mat-button matDialogClose class="login__submit2" (click)="ok()">OK</button>
+		</mat-dialog-actions>
+	</div>
+
+</ng-template>

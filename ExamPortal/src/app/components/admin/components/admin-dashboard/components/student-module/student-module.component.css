@@ -1,0 +1,19 @@
+.container1 {
+	/* display: flex; */
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+    background: linear-gradient(90deg, #C7C5F4, #db1555);	
+	background-size: cover;
+}
+a {
+    font-weight: 600;
+    padding-left: 15px;
+}
+.btn-outline-success {
+    color: #212529;
+    border-color: #212529;
+}
+.btn-outline-success:hover{
+	color: white;
+}
